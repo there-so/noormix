@@ -1,0 +1,26 @@
+node_modules
+.env
+.vscode
+
+build
+.cache/**
+**/.cache
+out
+dist
+*.log
+sun/build
+
+.DS_Store
+*.env
+.env.*
+
+app/.next
+sun/build/**.*
+
+# ts
+tsconfig.tsbuildinfo
+tsbuild
+
+
+# pnpm
+.pnpm-debug.log

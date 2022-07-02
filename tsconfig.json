@@ -1,0 +1,25 @@
+{
+  // "include": ["**/*.ts"],
+  "compilerOptions": {
+    "target": "ES2018",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "incremental": true,
+    "esModuleInterop": true,
+    "module": "commonjs",
+    "isolatedModules": true,
+    "jsx": "preserve",
+    // "resolveJsonModule": true,
+    // "baseUrl": ".",
+    "outDir": "./build",
+    "rootDir": "./",
+    "paths": {
+      "~/*": ["./app/*"]
+    }
+    // "typeRoots": ["./node_modules/@types", "./types"]
+  }
+}
