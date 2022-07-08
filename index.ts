@@ -1,6 +1,8 @@
+import "dotenv/config"
 import express, { Request, Response } from "express"
 import Auth from "~/models/Auth"
 import cors from "cors"
+import fileUpload from "express-fileupload"
 
 // Start of configurations -------------------------
 const app = express()
@@ -9,7 +11,15 @@ const port = process.env.PORT ? Number.parseInt(process.env.PORT, 10) : 3000
 // End of configurations -------------------------
 
 // Middleware
+// --- Allow all cors
 app.use(cors())
+
+// --- File upload
+app.use(
+  fileUpload({
+    limits: { fileSize: 50 * 1024 * 1024 },
+  }),
+)
 
 // Routes
 app.get("/", (req: Request, res: Response) => {

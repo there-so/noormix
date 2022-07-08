@@ -4,6 +4,7 @@ specifiers:
   '@prisma/client': ^4.0.0
   '@types/cors': ^2.8.12
   '@types/express': ^4.17.13
+  '@types/express-fileupload': ^1.2.2
   '@types/ioredis': 4.0.18
   '@types/node': ^18.0.0
   '@types/node-fetch': ^2
@@ -15,6 +16,7 @@ specifiers:
   esbuild: ^0.14.48
   esbuild-envfile-plugin: ^1.0.3
   express: ^4.18.1
+  express-fileupload: ^1.4.0
   jwt-simple: 0.5.6
   nanoid: ^3.3.4
   nodemon: ^2.0.18
@@ -28,12 +30,14 @@ dependencies:
   dotenv: 8.1.0
   esbuild: 0.14.48
   express: 4.18.1
+  express-fileupload: 1.4.0
   jwt-simple: 0.5.6
   nanoid: 3.3.4
 
 devDependencies:
   '@types/cors': 2.8.12
   '@types/express': 4.17.13
+  '@types/express-fileupload': 1.2.2
   '@types/ioredis': 4.0.18
   '@types/node': 18.0.0
   '@types/node-fetch': 2.6.2
@@ -87,6 +91,12 @@ packages:
       '@types/node': 18.0.0
     dev: true
 
+  /@types/busboy/0.3.2:
+    resolution: {integrity: sha512-iEvdm9Z9KdSs/ozuh1Z7ZsXrOl8F4M/CLMXPZHr3QuJ4d6Bjn+HBMC5EMKpwpAo8oi8iK9GZfFoHaIMrrZgwVw==}
+    dependencies:
+      '@types/node': 18.0.0
+    dev: true
+
   /@types/connect/3.4.35:
     resolution: {integrity: sha512-cdeYyv4KWoEgpBISTxWvqYsVy444DOqehiF3fM3ne10AmJ62RSyNkUnxMJXHQWRQQX2eR94m5y1IZyDwBjV9FQ==}
     dependencies:
@@ -95,6 +105,13 @@ packages:
 
   /@types/cors/2.8.12:
     resolution: {integrity: sha512-vt+kDhq/M2ayberEtJcIN/hxXy1Pk+59g2FV/ZQceeaTyCtCucjL2Q7FXlFjtWn4n15KCr1NE2lNNFhp0lEThw==}
+    dev: true
+
+  /@types/express-fileupload/1.2.2:
+    resolution: {integrity: sha512-sWU1EVFfLsdAginKVrkwTRbRPnbn7dawxEFEBgaRDcpNFCUuksZtASaAKEhqwEIg6fSdeTyI6dIUGl3thhrypg==}
+    dependencies:
+      '@types/busboy': 0.3.2
+      '@types/express': 4.17.13
     dev: true
 
   /@types/express-serve-static-core/4.17.29:
@@ -264,6 +281,13 @@ packages:
     dependencies:
       fill-range: 7.0.1
     dev: true
+
+  /busboy/1.6.0:
+    resolution: {integrity: sha512-8SFQbg/0hQ9xy3UNTB0YEnsNBbWfhf7RtnzpL7TkBiTBRfrQ9Fxcnz7VJsleJpyp6rVLvXiuORqjlHi5q+PYuA==}
+    engines: {node: '>=10.16.0'}
+    dependencies:
+      streamsearch: 1.1.0
+    dev: false
 
   /bytes/3.1.2:
     resolution: {integrity: sha512-/Nf7TyzTx6S3yRJObOAV7956r8cr2+Oj8AC5dt8wSP3BQAoeX58NoHyCU8P8zGkNXStjTSi6fzO6F0pBdcYbEg==}
@@ -776,6 +800,13 @@ packages:
   /etag/1.8.1:
     resolution: {integrity: sha512-aIL5Fx7mawVa300al2BnEE4iNvo1qETxLrPI/o05L7z6go7fCw1J6EQmbK4FmJ2AS7kgVF/KEZWufBfdClMcPg==}
     engines: {node: '>= 0.6'}
+    dev: false
+
+  /express-fileupload/1.4.0:
+    resolution: {integrity: sha512-RjzLCHxkv3umDeZKeFeMg8w7qe0V09w3B7oGZprr/oO2H/ISCgNzuqzn7gV3HRWb37GjRk429CCpSLS2KNTqMQ==}
+    engines: {node: '>=12.0.0'}
+    dependencies:
+      busboy: 1.6.0
     dev: false
 
   /express/4.18.1:
@@ -1504,6 +1535,11 @@ packages:
   /statuses/2.0.1:
     resolution: {integrity: sha512-RwNA9Z/7PrK06rYLIzFMlaF+l73iwpzsqRIFgbMLbTcLD6cOao82TaWefPXQvB2fOC4AjuYSEndS7N/mTCbkdQ==}
     engines: {node: '>= 0.8'}
+    dev: false
+
+  /streamsearch/1.1.0:
+    resolution: {integrity: sha512-Mcc5wHehp9aXz1ax6bZUyY5afg9u2rv5cqQI3mRrYkGC8rW2hM02jWuwjtL++LS5qinSyhj2QfLyNsuc+VsExg==}
+    engines: {node: '>=10.0.0'}
     dev: false
 
   /string-width/4.2.3:

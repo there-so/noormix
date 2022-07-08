@@ -18,9 +18,10 @@ This project will bring all goodies together
   - body parser post request
   - express compression
   - cookieParser
-  - dotenv
+  - ✅ dotenv
 - ✅ prettier
 - ✅jwt
+- ✅ Express file upload
 - docker ready
 - commands ready-> dev, start, build, migrate
 - pm2 ready
