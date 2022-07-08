@@ -26,3 +26,19 @@ This project will bring all goodies together
 - commands ready-> dev, start, build, migrate
 - pm2 ready
 - types for request routes
+
+## Installation
+
+install pnpm package manager before usage: [https://pnpm.io/]
+
+```sh
+$ pnpm install
+$ pnpm dev
+```
+
+## build command
+
+```sh
+$ pnpm build
+$ pnpm start
+```
