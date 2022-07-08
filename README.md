@@ -5,12 +5,12 @@ This project will bring all goodies together
 - ✅ pnpm
 - ✅ esbuild
 - ✅ ExpressJs
-- ExpressJs router [todo]
 - ✅ TypeScript
 - ✅ Prisma
 - ✅Auth example
 - ✅ Cors
 - ✅ nodemon/pnpm watch
+- ✅ commands ready-> dev, start, build, migrate
 - eslint
 - some tools:
   - escape string
@@ -23,8 +23,8 @@ This project will bring all goodies together
 - ✅jwt
 - ✅ Express file upload
 - docker ready
-- commands ready-> dev, start, build, migrate
 - pm2 ready
+- ExpressJs router [todo]
 - types for request routes
 
 ## Installation
