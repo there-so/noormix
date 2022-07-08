@@ -2,25 +2,25 @@
 
 This project will bring all goodies together
 
-- pnpm
-- esbuild
-- ExpressJs
+- ✅ pnpm
+- ✅ esbuild
+- ✅ ExpressJs
 - ExpressJs router
-- TypeScript
+- ✅ TypeScript
 - Prisma
-- Auth example
-- Cors
-- nodemon
+- ✅Auth example
+- ✅ Cors
+- ✅ nodemon/pnpm watch
 - eslint
 - some tools:
   - escape string
-  - json function
+  - ✅ json function
   - body parser post request
   - express compression
   - cookieParser
   - dotenv
-- prettier
-- jwt
+- ✅ prettier
+- ✅jwt
 - docker ready
 - commands ready-> dev, start, build, migrate
 - pm2 ready
