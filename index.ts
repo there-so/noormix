@@ -21,7 +21,9 @@ import { helloWorld } from "~/routes/helloWorld"
 app.get("/helloWorld", helloWorld)
 
 // Authenticated route
-app.get("/userInfo", Auth, helloWorld)
+import { userInfo } from "~/routes/userInfo"
+app.get("/userInfoWithAuth", Auth, userInfo)
+app.get("/userInfo", userInfo)
 
 // Run app & create server
 app.listen(port, () => {

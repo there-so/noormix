@@ -15,6 +15,7 @@
   "author": "Noor",
   "license": "ISC",
   "dependencies": {
+    "@prisma/client": "^4.0.0",
     "cors": "^2.8.5",
     "cuid": "2.1.8",
     "dotenv": "8.1.0",
