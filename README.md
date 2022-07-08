@@ -32,6 +32,8 @@ This project will bring all goodies together
 install pnpm package manager before usage: [https://pnpm.io/]
 
 ```sh
+$ git clone https://github.com/there-so/noormix.git
+$ cd noormix
 $ pnpm install
 ```
 
