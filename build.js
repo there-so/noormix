@@ -2,7 +2,7 @@
 
 require("esbuild")
   .build({
-    entryPoints: ["index.ts"],
+    entryPoints: ["app/index.ts"],
     bundle: true,
     platform: "node",
     external: ["dotenv"],
