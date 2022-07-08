@@ -2,14 +2,16 @@
 
 This project will bring all goodies together
 
+- pnpm
+- esbuild
 - ExpressJs
+- ExpressJs router
 - TypeScript
 - Prisma
 - Auth example
 - Cors
 - nodemon
 - eslint
-- router for all routes
 - some tools:
   - escape string
   - json function
@@ -17,7 +19,6 @@ This project will bring all goodies together
   - express compression
   - cookieParser
   - dotenv
-  -
 - prettier
 - jwt
 - docker ready

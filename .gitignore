@@ -24,3 +24,4 @@ tsbuild
 
 # pnpm
 .pnpm-debug.log
+_trash
