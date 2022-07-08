@@ -20,6 +20,7 @@ app.get("/", (req: Request, res: Response) => {
 import { helloWorld } from "~/routes/helloWorld"
 app.get("/helloWorld", helloWorld)
 
+// Authenticated route
 app.get("/userInfo", Auth, helloWorld)
 
 // Run app & create server

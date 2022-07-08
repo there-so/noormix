@@ -5,9 +5,9 @@ This project will bring all goodies together
 - ✅ pnpm
 - ✅ esbuild
 - ✅ ExpressJs
-- ExpressJs router
+- ExpressJs router [todo]
 - ✅ TypeScript
-- Prisma
+- ✅ Prisma
 - ✅Auth example
 - ✅ Cors
 - ✅ nodemon/pnpm watch
