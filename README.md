@@ -33,6 +33,11 @@ install pnpm package manager before usage: [https://pnpm.io/]
 
 ```sh
 $ pnpm install
+```
+
+## Usage dev
+
+```sh
 $ pnpm dev
 ```
 
