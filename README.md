@@ -7,7 +7,7 @@ This project will bring all goodies together
 - ✅ ExpressJs
 - ✅ TypeScript
 - ✅ Prisma
-- ✅Auth example
+- ✅ Auth example
 - ✅ Cors
 - ✅ nodemon/pnpm watch
 - ✅ commands ready-> dev, start, build, migrate
@@ -20,8 +20,9 @@ This project will bring all goodies together
   - cookieParser
   - ✅ dotenv
 - ✅ prettier
-- ✅jwt
+- ✅ jwt
 - ✅ Express file upload
+- aes encryption tool
 - docker ready
 - pm2 ready
 - ExpressJs router [todo]
