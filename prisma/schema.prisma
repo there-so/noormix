@@ -1,6 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -8,4 +5,174 @@ generator client {
 datasource db {
   provider = "mysql"
   url      = env("DATABASE_URL")
+}
+
+model currencies {
+  id           Int               @id @default(autoincrement()) @db.UnsignedInt
+  name         String            @db.Char(191)
+  symbol       String            @db.Char(191)
+  type         currencies_type
+  wallet_count Int               @default(0)
+  status       currencies_status @default(active)
+  created_at   DateTime?         @db.Timestamp(0)
+  updated_at   DateTime?         @db.Timestamp(0)
+  funds        funds[]
+  wallets      wallets[]
+}
+
+model failed_jobs {
+  id         BigInt   @id @default(autoincrement()) @db.UnsignedBigInt
+  connection String   @db.Text
+  queue      String   @db.Text
+  payload    String   @db.LongText
+  exception  String   @db.LongText
+  failed_at  DateTime @default(now()) @db.Timestamp(0)
+}
+
+model funds {
+  id          Int          @id @default(autoincrement()) @db.UnsignedInt
+  currency_id Int          @db.UnsignedInt
+  user_id     String       @db.Char(36)
+  wallet_id   Int          @db.UnsignedInt
+  amount      Decimal      @db.Decimal(14, 2)
+  title       String       @db.Char(191)
+  source      String       @db.Char(191)
+  TxId        String       @db.Char(191)
+  type        funds_type
+  description String
+  status      funds_status
+  created_at  DateTime?    @db.Timestamp(0)
+  updated_at  DateTime?    @db.Timestamp(0)
+  currencies  currencies   @relation(fields: [currency_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "funds_currency_id_foreign")
+  users       users        @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "funds_user_id_foreign")
+  wallets     wallets      @relation(fields: [wallet_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "funds_wallet_id_foreign")
+
+  @@index([currency_id], map: "funds_currency_id_foreign")
+  @@index([user_id], map: "funds_user_id_foreign")
+  @@index([wallet_id], map: "funds_wallet_id_foreign")
+}
+
+model migrations {
+  id        Int    @id @default(autoincrement()) @db.UnsignedInt
+  migration String
+  batch     Int
+}
+
+model otps {
+  id         Int      @id @default(autoincrement()) @db.UnsignedInt
+  user_id    String   @db.Char(36)
+  code       Int
+  expired_at DateTime @default(now()) @db.Timestamp(0)
+  users      users    @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "otps_user_id_foreign")
+
+  @@unique([user_id, code], map: "otps_user_id_code_unique")
+}
+
+model password_resets {
+  id         Int       @id @default(autoincrement()) @db.UnsignedInt
+  email      String
+  token      String
+  created_at DateTime? @db.Timestamp(0)
+
+  @@index([email], map: "password_resets_email_index")
+}
+
+model profiles {
+  id                              Int       @id @default(autoincrement()) @db.UnsignedInt
+  user_id                         String    @db.Char(36)
+  national_code                   Int?      @unique(map: "profiles_national_code_unique") @db.UnsignedInt
+  national_code_verified_at       DateTime? @db.Timestamp(0)
+  national_code_image             String?
+  national_code_image_verified_at DateTime? @db.Timestamp(0)
+  created_at                      DateTime? @db.Timestamp(0)
+  updated_at                      DateTime? @db.Timestamp(0)
+  users                           users     @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "profiles_user_id_foreign")
+
+  @@index([user_id], map: "profiles_user_id_foreign")
+}
+
+model users {
+  id                 String       @id @db.Char(36)
+  first_name         String?
+  last_name          String?
+  mobile             String?      @unique(map: "users_mobile_unique")
+  mobile_verified_at DateTime?    @db.Timestamp(0)
+  password           String
+  post               users_post   @default(user)
+  level              users_level  @default(basic)
+  fee                Decimal      @default(0.0050) @db.Decimal(4, 4)
+  status             users_status @default(requested)
+  remember_token     String?      @db.VarChar(100)
+  created_at         DateTime?    @db.Timestamp(0)
+  updated_at         DateTime?    @db.Timestamp(0)
+  funds              funds[]
+  otps               otps[]
+  profiles           profiles[]
+  wallets            wallets[]
+}
+
+model wallets {
+  id               Int            @id @default(autoincrement()) @db.UnsignedInt
+  currency_id      Int            @db.UnsignedInt
+  user_id          String         @db.Char(36)
+  symbol           String
+  account_number   Int            @db.UnsignedInt
+  balance          Decimal        @default(0.00) @db.Decimal(14, 2)
+  on_order         Decimal        @default(0.00) @db.Decimal(14, 2)
+  withdrawal_limit Decimal        @default(0.00) @db.Decimal(14, 2)
+  deposit_limit    Decimal        @default(0.00) @db.Decimal(14, 2)
+  status           wallets_status
+  created_at       DateTime?      @db.Timestamp(0)
+  updated_at       DateTime?      @db.Timestamp(0)
+  currencies       currencies     @relation(fields: [currency_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "wallets_currency_id_foreign")
+  users            users          @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "wallets_user_id_foreign")
+  funds            funds[]
+
+  @@index([currency_id], map: "wallets_currency_id_foreign")
+  @@index([user_id], map: "wallets_user_id_foreign")
+}
+
+enum currencies_type {
+  fiat
+  crypto
+}
+
+enum currencies_status {
+  active
+  inactive
+}
+
+enum funds_type {
+  deposit
+  withdrawal
+}
+
+enum funds_status {
+  pending
+  rejected
+  confirmed
+}
+
+enum users_post {
+  user
+  banker
+  admin
+  superAdmin
+}
+
+enum users_level {
+  basic
+  vip
+}
+
+enum users_status {
+  requested
+  registered
+  confirmed
+  blocked
+}
+
+enum wallets_status {
+  active
+  inactive
 }

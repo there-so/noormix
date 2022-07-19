@@ -15,7 +15,7 @@ This project will bring all goodies together
 - some tools:
   - escape string
   - ✅ json function
-  - body parser post request
+  - ✅ body parser post request
   - express compression
   - cookieParser
   - ✅ dotenv
@@ -24,7 +24,7 @@ This project will bring all goodies together
 - ✅ Express file upload
 - aes encryption tool
 - docker ready
-- pm2 ready
+- ✅ pm2 ready
 - ExpressJs router [todo]
 - types for request routes
 
@@ -51,4 +51,12 @@ $ pnpm dev
 ```sh
 $ pnpm build
 $ pnpm start
+```
+
+## PM2 Commands
+
+```sh
+$ pm2 start ecosystem.config.js
+$ pm2 stop ecosystem.config.js
+$ pm2 restart ecosystem.config.js
 ```

@@ -11,6 +11,12 @@ const port = process.env.PORT ? Number.parseInt(process.env.PORT, 10) : 3000
 // End of configurations -------------------------
 
 // Middleware
+// --- handling post request and multipart
+// for parsing application/json
+app.use(express.json())
+// for parsing application/x-www-form-urlencoded
+app.use(express.urlencoded({ extended: true }))
+
 // --- Allow all cors
 app.use(cors())
 
