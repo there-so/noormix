@@ -56,6 +56,12 @@ $ pnpm start
 ## PM2 Commands
 
 ```sh
+$ pnpm pm2:start
+```
+
+#OR
+
+```sh
 $ pm2 start ecosystem.config.js
 $ pm2 stop ecosystem.config.js
 $ pm2 restart ecosystem.config.js
